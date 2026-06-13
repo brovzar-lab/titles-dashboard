@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TitleProject } from '../types'
 
@@ -15,6 +16,13 @@ const FORMAT_LABEL: Record<string, string> = {
 }
 
 export function DetailPanel({ title, onClose }: DetailPanelProps) {
+  useEffect(() => {
+    if (!title) return
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
+    document.addEventListener('keydown', handler)
+    return () => document.removeEventListener('keydown', handler)
+  }, [title, onClose])
+
   return (
     <AnimatePresence>
       {title && (

@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { useTitles } from '../hooks/useTitles'
 import { TitleCard } from './TitleCard'
 import { DetailPanel } from './DetailPanel'
+import { DemoBadge } from './DemoBadge'
 import { TitleProject, TitleLane } from '../types'
+import { isDemoMode } from '../config'
 
 const LANES: { id: TitleLane; label: string; accent: string; headerBg: string; countBg: string }[] = [
   {
     id: 'gate',
-    label: 'Gate',
+    label: 'Development Gate',
     accent: 'border-t-amber-500',
     headerBg: 'from-amber-500/10 to-transparent',
     countBg: 'bg-amber-500/15 text-amber-300',
@@ -116,6 +118,7 @@ export function Dashboard() {
         </div>
       </div>
 
+      {isDemoMode && !selected && <DemoBadge />}
       <DetailPanel title={selected} onClose={() => setSelected(null)} />
     </>
   )

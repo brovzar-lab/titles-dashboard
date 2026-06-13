@@ -14,6 +14,7 @@ export const DEMO_TITLES: TitleProject[] = [
     posterUrl: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=400&q=80',
     heroUrl: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1200&q=85',
     status: 'Gate Review',
+    issueId: 'APPU-1067',
     talent: [
       { name: 'Derek Rabelo', role: 'Subject' },
       { name: 'Fernanda Lima', role: 'Director' },

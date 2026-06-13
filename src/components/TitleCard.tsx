@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion'
 import { TitleProject } from '../types'
 
+const FORMAT_LABEL: Record<string, string> = {
+  'film/feature': 'Feature Film',
+  'film/documentary': 'Documentary',
+  'tv/series': 'TV Series',
+  'tv/limited': 'Limited Series',
+  'tv/miniseries': 'Miniseries',
+}
+
 const LANE_STATUS_COLORS: Record<string, string> = {
   'Gate Review': 'bg-amber-500/20 text-amber-300 border-amber-500/30',
   'Script Development': 'bg-blue-500/20 text-blue-300 border-blue-500/30',
@@ -79,7 +87,7 @@ export function TitleCard({ title, onClick, index }: TitleCardProps) {
             {title.status}
           </span>
           <span className="text-[10px] text-slate-500">
-            {title.format.split('/')[1]}
+            {FORMAT_LABEL[title.format] ?? title.format}
           </span>
         </div>
       </div>
