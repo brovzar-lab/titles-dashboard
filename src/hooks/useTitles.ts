@@ -13,5 +13,6 @@ export function useTitles() {
       return fetchTitles(apiKey)
     },
     staleTime: 60_000,
+    refetchInterval: isDemoMode ? false : 30_000,
   })
 }

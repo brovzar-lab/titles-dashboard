@@ -123,8 +123,8 @@ export const DEMO_TITLES: TitleProject[] = [
     logline: 'A female police captain navigates corruption in a crumbling precinct.',
     description:
       'When Captain Adriana Vasquez takes command of the Fourth District — the most underfunded, least trusted precinct in the city — she inherits a squad demoralized by scandal, a community that stopped calling years ago, and a deputy commissioner who sees the Fourth as somewhere careers go to die. She intends to prove him right only on her terms.',
-    posterUrl: 'https://images.unsplash.com/photo-1509822929464-92b27d20a6d0?w=400&q=80',
-    heroUrl: 'https://images.unsplash.com/photo-1509822929464-92b27d20a6d0?w=1200&q=85',
+    posterUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&q=80',
+    heroUrl: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&q=85',
     status: 'Writers Room',
     talent: [
       { name: 'Viola Davis', role: 'Lead — Capt. Adriana Vasquez' },
