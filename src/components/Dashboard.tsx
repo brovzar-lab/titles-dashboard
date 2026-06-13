@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { useTitles } from '../hooks/useTitles'
 import { TitleCard } from './TitleCard'
 import { DetailPanel } from './DetailPanel'
-import { TitleProject, TitleLane } from '../types'
+import { DemoBadge } from './DemoBadge'
+import type { TitleProject, TitleLane } from '../types'
 
 const LANES: { id: TitleLane; label: string; accent: string; headerBg: string; countBg: string }[] = [
   {
@@ -39,11 +40,10 @@ function LaneSkeleton() {
 }
 
 export function Dashboard() {
-  const { data: titles, isLoading, error } = useTitles()
+  const { data: titles, isLoading, isDemo } = useTitles()
   const [selected, setSelected] = useState<TitleProject | null>(null)
 
-  const byLane = (lane: TitleLane) =>
-    (titles ?? []).filter((t) => t.lane === lane)
+  const byLane = (lane: TitleLane) => titles.filter((t) => t.lane === lane)
 
   return (
     <>
@@ -58,16 +58,10 @@ export function Dashboard() {
           </div>
           <div className="text-right">
             <p className="text-xs text-slate-600">
-              {titles ? `${titles.length} titles` : '—'}
+              {!isLoading ? `${titles.length} titles` : '—'}
             </p>
           </div>
         </header>
-
-        {error && (
-          <div className="mb-8 rounded-xl border border-red-500/20 bg-red-500/5 px-4 py-3 text-sm text-red-400">
-            Failed to load titles. Showing demo data.
-          </div>
-        )}
 
         {/* 3-column grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -117,6 +111,7 @@ export function Dashboard() {
       </div>
 
       <DetailPanel title={selected} onClose={() => setSelected(null)} />
+      {isDemo && <DemoBadge />}
     </>
   )
 }

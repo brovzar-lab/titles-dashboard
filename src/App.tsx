@@ -1,12 +1,11 @@
-import { isDemoMode } from './config'
 import { Dashboard } from './components/Dashboard'
-import { DemoBadge } from './components/DemoBadge'
+import { ToastContainer } from './components/Toast'
 
 export default function App() {
   return (
     <>
-      {isDemoMode && <DemoBadge />}
       <Dashboard />
+      <ToastContainer />
     </>
   )
 }
